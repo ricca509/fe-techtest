@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberGrid should render a list of NumberTiles (with the right parameters) up to a specific number 1`] = `
+"
+    <ul data-role=\\"number-grid\\" class=\\"number-list\\">
+      <NumberTile /><NumberTile /><NumberTile /><NumberTile />
+    </ul>
+  "
+`;

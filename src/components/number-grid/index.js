@@ -1,12 +1,13 @@
 import NumberTile from "../number-tile";
 
-const NumberGrid = ({ numbersToShow }) => {
+const NumberGrid = ({ numbersToShow, selectedNumbers = [] }) => {
   const numRange = new Array(numbersToShow).fill().map((_, index) => index + 1);
 
   const numbers = numRange
     .map((num) => {
       return NumberTile({
         ordinal: num,
+        isSelected: selectedNumbers.includes(num),
       });
     })
     .join("");

@@ -5,11 +5,11 @@ jest.mock("../number-tile");
 
 describe("NumberGrid", () => {
   beforeEach(() => {
-    NumberTile.mockImplementation(() => "NumberTile");
+    NumberTile.mockImplementation(() => "<NumberTile />");
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    jest.clearAllMocks();
   });
 
   it("should render a list of NumberTiles (with the right parameters) up to a specific number", () => {
@@ -17,14 +17,23 @@ describe("NumberGrid", () => {
 
     expect(NumberTile).toHaveBeenCalledTimes(4);
     expect(NumberTile.mock.calls).toEqual([
-      [{ ordinal: 1 }],
-      [{ ordinal: 2 }],
-      [{ ordinal: 3 }],
-      [{ ordinal: 4 }],
+      [{ ordinal: 1, isSelected: false }],
+      [{ ordinal: 2, isSelected: false }],
+      [{ ordinal: 3, isSelected: false }],
+      [{ ordinal: 4, isSelected: false }],
     ]);
+
+    expect(result).toMatchSnapshot();
   });
 
   it("should pass to NumberTile the selection status true/false", () => {
-    expect(true).toBe(false);
+    const result = NumberGrid({ numbersToShow: 4, selectedNumbers: [2, 4] });
+
+    expect(NumberTile.mock.calls).toEqual([
+      [{ ordinal: 1, isSelected: false }],
+      [{ ordinal: 2, isSelected: true }],
+      [{ ordinal: 3, isSelected: false }],
+      [{ ordinal: 4, isSelected: true }],
+    ]);
   });
 });
