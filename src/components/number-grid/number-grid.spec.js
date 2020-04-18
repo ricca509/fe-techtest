@@ -5,7 +5,7 @@ jest.mock("../number-tile");
 
 describe("NumberGrid", () => {
   beforeEach(() => {
-    NumberTile.mockImplementation(() => "<NumberTile />");
+    NumberTile.mockImplementation(() => "<NumberTile></NumberTile>");
   });
 
   afterEach(() => {
@@ -27,7 +27,7 @@ describe("NumberGrid", () => {
   });
 
   it("should pass to NumberTile the selection status true/false", () => {
-    const result = NumberGrid({ numbersToShow: 4, selectedNumbers: [2, 4] });
+    NumberGrid({ numbersToShow: 4, selectedNumbers: [2, 4] });
 
     expect(NumberTile.mock.calls).toEqual([
       [{ ordinal: 1, isSelected: false }],
@@ -35,5 +35,22 @@ describe("NumberGrid", () => {
       [{ ordinal: 3, isSelected: false }],
       [{ ordinal: 4, isSelected: true }],
     ]);
+  });
+
+  describe("when clicked", () => {
+    it("should invoke the callback provided", () => {
+      const onSelectionCb = jest.fn();
+      const element = NumberGrid({
+        numbersToShow: 4,
+        selectedNumbers: [2, 4],
+        onSelection: onSelectionCb,
+      });
+
+      expect(onSelectionCb).not.toHaveBeenCalled();
+
+      element.click();
+
+      expect(onSelectionCb).toHaveBeenCalledTimes(1);
+    });
   });
 });
