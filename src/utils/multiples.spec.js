@@ -6,6 +6,6 @@ describe("getMultiplesOf", () => {
     const expected = [2, 4, 6, 8, 10];
     const result = getMultiplesOf(2, 10);
 
-    expect(result).toBe(expected);
+    expect(result).toEqual(expected);
   });
 });
