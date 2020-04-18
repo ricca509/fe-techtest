@@ -1,4 +1,4 @@
-import renderToDom from "./renderToDom";
+import { renderToDom, toDomNodes } from "./dom";
 
 describe("renderToDom", () => {
   it("should render a string to a target element", () => {
@@ -18,4 +18,10 @@ describe("renderToDom", () => {
   it("should render a Node to a target element", () => {});
 
   it("should render a Node[] to a target element", () => {});
+});
+
+describe("toDomNodes", () => {
+  it("should transform a valid HTML string into a Dom node", () => {
+    expect(toDomNodes("<div>text</div>") instanceof HTMLDivElement).toBe(true);
+  });
 });

@@ -1,4 +1,4 @@
-const renderToDom = (nodes, targetElement) => {
+export const renderToDom = (nodes, targetElement) => {
   if (!targetElement) {
     throw new Error("Not valid element");
   }
@@ -21,4 +21,5 @@ const renderToDom = (nodes, targetElement) => {
   return targetElement;
 };
 
-export default renderToDom;
+export const toDomNodes = (html) =>
+  new DOMParser().parseFromString(html, "text/html").body.childNodes[0];
