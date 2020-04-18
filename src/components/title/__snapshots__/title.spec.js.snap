@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title should render the page title 1`] = `
+"
+    <header class=\\"header\\">
+      <h1>Let's try multiplications!</h1>
+      <h2>Select a number to see all its multiples, click again to make them disappear</h2>
+    </header>
+  "
+`;
