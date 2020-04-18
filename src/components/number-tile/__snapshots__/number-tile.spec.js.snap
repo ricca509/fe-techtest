@@ -2,16 +2,16 @@
 
 exports[`NumberTile should add the right class and data attribute when selected 1`] = `
 "    
-    <li data-role=\\"number\\" data-number=\\"5\\" data-selected=\\"true\\" class=\\"selected\\">
+    <li data-role=\\"number\\" data-number=\\"5\\" data-selected=\\"true\\" class=\\"number selected\\">
       5
-    </li>    
+    </li>  
   "
 `;
 
 exports[`NumberTile should render a list item and have the current markup 1`] = `
 "    
-    <li data-role=\\"number\\" data-number=\\"5\\" data-selected=\\"false\\" class=\\"\\">
+    <li data-role=\\"number\\" data-number=\\"5\\" data-selected=\\"false\\" class=\\"number\\">
       5
-    </li>    
+    </li>  
   "
 `;
