@@ -8,7 +8,23 @@ describe("NumberGrid", () => {
     NumberTile.mockImplementation(() => "NumberTile");
   });
 
-  it("should render a list of NumberTiles up to a specific number", () => {});
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
 
-  it("should pass to NumberTile the selection status true/false", () => {});
+  it("should render a list of NumberTiles (with the right parameters) up to a specific number", () => {
+    const result = NumberGrid({ numbersToShow: 4 });
+
+    expect(NumberTile).toHaveBeenCalledTimes(4);
+    expect(NumberTile.mock.calls).toEqual([
+      [{ ordinal: 1 }],
+      [{ ordinal: 2 }],
+      [{ ordinal: 3 }],
+      [{ ordinal: 4 }],
+    ]);
+  });
+
+  it("should pass to NumberTile the selection status true/false", () => {
+    expect(true).toBe(false);
+  });
 });
