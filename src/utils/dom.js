@@ -12,6 +12,8 @@ export const renderToDom = (nodes, targetElement) => {
       documentFragment.append(
         document.createRange().createContextualFragment(child)
       );
+    } else {
+      documentFragment.append(child);
     }
   });
 

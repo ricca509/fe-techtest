@@ -15,9 +15,27 @@ describe("renderToDom", () => {
     // );
   });
 
-  it("should render a Node to a target element", () => {});
+  it("should render a Node to a target element", () => {
+    const childNode = document.createElement("p");
+    childNode.classList.add("class1");
+    const parent = document.createElement("div");
 
-  it("should render a Node[] to a target element", () => {});
+    expect(renderToDom(childNode, parent).innerHTML).toEqual(
+      '<p class="class1"></p>'
+    );
+  });
+
+  it("should render a Node[] to a target element", () => {
+    const childNode1 = document.createElement("p");
+    childNode1.classList.add("class1");
+    const childNode2 = document.createElement("p");
+    childNode2.classList.add("class2");
+    const parent = document.createElement("div");
+
+    expect(renderToDom([childNode1, childNode2], parent).innerHTML).toEqual(
+      '<p class="class1"></p><p class="class2"></p>'
+    );
+  });
 });
 
 describe("toDomNodes", () => {
