@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --quiet"
+    "start": "webpack-dev-server --quiet",
+    "integration:dev": "cypress open",
+    "integration": "start-server-and-test 'npm start' http://localhost:8080 'cypress run'"
   },
   "author": "",
   "license": "ISC",
@@ -36,5 +38,9 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
       "\\.(css|less|scss)$": "<rootDir>/test/__mocks__/styleMock.js"
     }
+  },
+  "devDependencies": {
+    "cypress": "^4.4.0",
+    "start-server-and-test": "^1.11.0"
   }
 }
