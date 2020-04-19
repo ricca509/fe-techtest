@@ -29,7 +29,7 @@ describe("The application component", () => {
     );
     expect(NumberGrid).toHaveBeenCalledWith({
       numbersToShow: 2,
-      selectedNumbers: [1, 2],
+      selectedNumbers: [],
       onSelection: expect.any(Function),
     });
   });
