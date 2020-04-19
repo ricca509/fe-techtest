@@ -14,9 +14,9 @@ const NumberGrid = ({ numbersToShow, onSelection, selectedNumbers = [] }) => {
     .join("");
 
   const numbersComponent = toDomNodes(`
-    <ul data-role="number-grid" class="number-list">
+    <main data-role="number-grid" class="number-list">
       ${numbers}
-    </ul>
+    </main>
   `);
 
   numbersComponent.addEventListener("click", onSelection, true);

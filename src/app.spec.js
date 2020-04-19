@@ -2,7 +2,6 @@ import app from "./app";
 import { renderToDom } from "./utils/dom";
 import Title from "./components/title";
 import NumberGrid from "./components/number-grid";
-import NumberTile from "./components/number-tile";
 
 jest.mock("./utils/dom");
 jest.mock("./components/title");

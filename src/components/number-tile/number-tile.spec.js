@@ -15,7 +15,7 @@ describe("NumberTile", () => {
     expect(result).toMatchSnapshot();
   });
 
-  it("should render a list item and have the current markup", () => {
+  it("should render a list item and have the correct markup", () => {
     const result = NumberTile({ ordinal: 5 });
 
     expect(result).toMatchSnapshot();

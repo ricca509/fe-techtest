@@ -1,15 +1,25 @@
 # Implementation notes
 
+I worked on this task for about 3hrs, on and off. I tried to stay in the timeframe but also wanted to provide a fully working, nicely organised and tested application.
+
+In the exercise description it is mentioned that no library should be needed, so I decided not to use any as it wasn't strictly necessary for this application.
+
+I took this as an opportunity to show skills that fall outside the task of just writing React code, like dealing with the DOM api and writing small utilities. I did, though, inspire my approach to React and tried to offer a way of developing components that makes them isolated as much as possible, to improve maintainability and testability.
+
+Given the timeframe, compromises had to be made, although by using different levels of testing I made sure that the confidence of shipping a fully working application was not affected.
+
+For a React approach, I would have used React + Context and hooks to accomodate the needs of this app: if interested in this approach, I wrote an article on [dev.to](https://dev.to/ricca509/replace-redux-with-hooks-and-the-context-api-how-to-4m77).
+
 There are two parts where unit tests do not cover 100% of the code:
 
 - `utils/dom`: jsdom lacks a complete dom implementation and the api for `createRange` is missing.
-  I could have polyfilled it but given the time constraints I decided to not do it (I although prepared all the tests). It is not difficult to do, it just takes time that I felt at that point I had to spend on the app itself.
-- `app`: The app is not completely unit tested: given my decision to implement a small "library" and have an internal state,
-  the state changes could not be tested, resulting in a partial unit test. With more time, I would have implemented it as a class extending a parent class (like react does) with a public method to be called inside the tests to set the state.
+  I could have polyfilled it but given the time constraints I decided to not do it (I although prepared all the tests, they are just being skipped). It is not difficult to do, it just takes time that I felt at that point I had to spend on the app itself.
+- `app`: The app is not completely unit tested (but fully tested with integration tests): given my decision to implement a small "dom library" and have an internal state,
+  the state changes could not be tested, resulting in partial unit tests. With more time, I would have implemented it as a class extending a parent class (like react does) with a public method to be called inside the tests to set the state.
 
-Although those two pieces are not completely unit tested, I added two integration tests with cypress that cover the requirements and show the page working as a whole. Run them with `npm run integration` (or `npm run integration:dev` if you want to use the cypress UI).
+Although those two pieces are not completely unit tested, I added two integration tests with cypress (find them in `cypress/integration/multiples.cy.js`) that cover the requirements and show the page working as a whole. Run them with `npm run integration` (or `npm run integration:dev` if you want to use the cypress UI).
 
-With more time I would have implemented CSS modules by changing the webpack config. This way every component would have been completely isolated. All the style is for now in the main `style.css`.
+With more time I would have implemented CSS modules by changing the webpack config for the `css-loader`. This way every component would have been completely isolated. All the style is for now in the main `style.css`.
 
 # Which? Javascript Exercise
 

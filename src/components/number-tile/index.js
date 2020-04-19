@@ -7,9 +7,9 @@ const NumberTile = ({ ordinal, isSelected = false }) => {
   });
 
   return `    
-    <li data-role="number" data-number="${ordinal}" data-selected="${isSelected}" class="${classes}">
+    <button data-role="number" data-number="${ordinal}" data-selected="${isSelected}" class="${classes}">
       ${ordinal}
-    </li>  
+    </button>  
   `;
 };
 

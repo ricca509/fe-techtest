@@ -2,8 +2,8 @@ body {
   font-family: sans-serif;
 }
 
-#app {
-  max-width: 1024px;
+[data-role="app-container"] {
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -18,17 +18,18 @@ body {
   grid-auto-rows: 100vw;
   grid-gap: 10px;
   color: #444;
-  font-size: 30px;
   padding-left: 0;
 }
 
 .number {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  background-color: #fff;
   border: 2px solid #fa7921;
   border-radius: 3px;
+  font-size: 30px;
 }
 
 .selected {

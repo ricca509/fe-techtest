@@ -42,7 +42,7 @@ const app = (maxNumberToShow) => {
           onSelection: handleNumberSelection,
         }),
       ],
-      document.querySelector("#app")
+      document.querySelector('[data-role="app-container"]')
     );
   };
 
